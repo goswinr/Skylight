@@ -146,7 +146,7 @@ type UIElementBuilder() =
     member __.Focusable<'C,'T1,'T2,'TC when 'C :> UIElement>(binder:ControlBinder<'C>,(expr1:Expr<'T1>,expr2:Expr<'T2>,setMap:'TC -> ('T1 * 'T2),getMap:('T1 * 'T2) ->'TC)) = binder.Collect(propMapTargetBind2X expr1 expr2 getMap setMap UIElement.FocusableProperty)
     member __.Focusable<'C,'T1,'T2,'T3,'TC when 'C :> UIElement>(binder:ControlBinder<'C>,(expr1:Expr<'T1>,expr2:Expr<'T2>,expr3:Expr<'T3>,setMap:'TC -> ('T1 * 'T2 * 'T3),getMap:('T1 * 'T2 * 'T3) ->'TC)) = binder.Collect(propMapTargetBind3X expr1 expr2 expr3 getMap setMap UIElement.FocusableProperty)
     
-
+    (* BitmapEffect is deprecated:
     [<CustomOperation("bitmapEffectInput")>]
     member __.BitmapEffectInput<'C when 'C :> UIElement>(binder:ControlBinder<'C>,v:BitmapEffectInput) = binder.Control.BitmapEffectInput <- v ; binder
     
@@ -154,7 +154,7 @@ type UIElementBuilder() =
     member __.BitmapEffectInput<'C,'TP,'TC when 'C :> UIElement>(binder:ControlBinder<'C>,(expr:Expr<'TP>,setMap:'TC->'TP,getMap:'TP->'TC)) = binder.Collect(propMapTargetBindX expr getMap setMap UIElement.BitmapEffectInputProperty)
     member __.BitmapEffectInput<'C,'T1,'T2,'TC when 'C :> UIElement>(binder:ControlBinder<'C>,(expr1:Expr<'T1>,expr2:Expr<'T2>,setMap:'TC -> ('T1 * 'T2),getMap:('T1 * 'T2) ->'TC)) = binder.Collect(propMapTargetBind2X expr1 expr2 getMap setMap UIElement.BitmapEffectInputProperty)
     member __.BitmapEffectInput<'C,'T1,'T2,'T3,'TC when 'C :> UIElement>(binder:ControlBinder<'C>,(expr1:Expr<'T1>,expr2:Expr<'T2>,expr3:Expr<'T3>,setMap:'TC -> ('T1 * 'T2 * 'T3),getMap:('T1 * 'T2 * 'T3) ->'TC)) = binder.Collect(propMapTargetBind3X expr1 expr2 expr3 getMap setMap UIElement.BitmapEffectInputProperty)
-    
+    *)
 
     [<CustomOperation("isMouseDirectlyOver")>]
     member __.IsMouseDirectlyOver<'C,'T when 'C :> UIElement>(binder:ControlBinder<'C>,expr:Expr<'T>) = binder.Collect(propTargetGetX expr UIElement.IsMouseDirectlyOverProperty)  
@@ -162,6 +162,7 @@ type UIElementBuilder() =
     member __.IsMouseDirectlyOver<'C,'T1,'T2,'TC when 'C :> UIElement>(binder:ControlBinder<'C>,(expr1:Expr<'T1>,expr2:Expr<'T2>,setMap:'TC -> ('T1 * 'T2))) = binder.Collect(propMapTargetGet2X expr1 expr2 setMap UIElement.IsMouseDirectlyOverProperty)
     member __.IsMouseDirectlyOver<'C,'T1,'T2,'T3,'TC when 'C :> UIElement>(binder:ControlBinder<'C>,(expr1:Expr<'T1>,expr2:Expr<'T2>,expr3:Expr<'T3>,setMap:'TC -> ('T1 * 'T2 * 'T3))) = binder.Collect(propMapTargetGet3X expr1 expr2 expr3 setMap UIElement.IsMouseDirectlyOverProperty)
 
+    (* BitmapEffect is deprecated:
     [<CustomOperation("bitmapEffect")>]
     member __.BitmapEffect<'C when 'C :> UIElement>(binder:ControlBinder<'C>,v:BitmapEffect) = binder.Control.BitmapEffect <- v ; binder
     
@@ -169,7 +170,7 @@ type UIElementBuilder() =
     member __.BitmapEffect<'C,'TP,'TC when 'C :> UIElement>(binder:ControlBinder<'C>,(expr:Expr<'TP>,setMap:'TC->'TP,getMap:'TP->'TC)) = binder.Collect(propMapTargetBindX expr getMap setMap UIElement.BitmapEffectProperty)
     member __.BitmapEffect<'C,'T1,'T2,'TC when 'C :> UIElement>(binder:ControlBinder<'C>,(expr1:Expr<'T1>,expr2:Expr<'T2>,setMap:'TC -> ('T1 * 'T2),getMap:('T1 * 'T2) ->'TC)) = binder.Collect(propMapTargetBind2X expr1 expr2 getMap setMap UIElement.BitmapEffectProperty)
     member __.BitmapEffect<'C,'T1,'T2,'T3,'TC when 'C :> UIElement>(binder:ControlBinder<'C>,(expr1:Expr<'T1>,expr2:Expr<'T2>,expr3:Expr<'T3>,setMap:'TC -> ('T1 * 'T2 * 'T3),getMap:('T1 * 'T2 * 'T3) ->'TC)) = binder.Collect(propMapTargetBind3X expr1 expr2 expr3 getMap setMap UIElement.BitmapEffectProperty)
-    
+    *)
 
     [<CustomOperation("renderSize")>]
     member __.RenderSize<'C when 'C :> UIElement>(binder:ControlBinder<'C>,v:Size) = binder.Control.RenderSize <- v ; binder

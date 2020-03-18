@@ -77,6 +77,12 @@ module Program =
                     child ( 
                         stackPanel {
                             children [
+                                button {
+                                    content "Increase Font Size"
+                                    onClick (<@ model.FontSize @> ,fun _ _ -> model.FontSize + 2.) }
+                                button {
+                                    content "decrease Font Size"
+                                    onClick (<@ model.FontSize @> ,fun _ _ -> model.FontSize - 2.) }
                                 label { 
                                     content ( stackPanel {  
                                         orientation Orientation.Horizontal
@@ -86,12 +92,7 @@ module Program =
                                         ]
                                     })
                                     fontSize <@ model.FontSize @> }
-                                button {
-                                    content "Increase Font Size"
-                                    onClick (<@ model.FontSize @> ,fun _ _ -> model.FontSize + 2.) }
-                                button {
-                                    content "decrease Font Size"
-                                    onClick (<@ model.FontSize @> ,fun _ _ -> model.FontSize - 2.) }
+                                
                             ]
                     })
                 }

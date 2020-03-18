@@ -1,4 +1,5 @@
 ﻿module Binding
+
 open System.Collections.Generic
 open System.Windows
 open System

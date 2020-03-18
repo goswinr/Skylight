@@ -2,16 +2,18 @@
 
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <OutputType>WinExe</OutputType>
     <TargetFramework>net472</TargetFramework> 
     <LangVersion>preview</LangVersion> <!-- for CEs without "yield" ?--> 
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages> <!--to only have the english resources in bin folder--> 
-    <Name>SkyLight</Name>
-    <RootNamespace>SkyLight</RootNamespace>
-    <AssemblyName>SkyLight</AssemblyName>  
+    <Name>SkyLightSampleApp</Name>
+    <RootNamespace>SkyLightSampleApp</RootNamespace>
+    <AssemblyName>SkyLightSampleApp</AssemblyName>   
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     
     <!--assembly info -->    
     <Authors>gerardtoconnor</Authors>
-    <Product>SkyLight</Product>
+    <Product>SkyLightSampleApp</Product>
     <Version>0.1.0</Version>
     <AssemblyVersion>0.1.0</AssemblyVersion>
     <FileVersion>0.1.0</FileVersion>
@@ -22,24 +24,26 @@
   
 
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Update="FSharp.Core" Version="4.7.1" />
     <PackageReference Include="TaskBuilder.fs" Version="2.1.0" />
   </ItemGroup>
 
-
-  <ItemGroup>    
-    <Compile Include="Binding.fs" />
-    <Compile Include="Output.fs" />
+  <ItemGroup>
+    <ProjectReference Include="..\SkyLight\SkyLight.fsproj" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="WindowsBase" />
+    <Compile Include="Program.fs" />
   </ItemGroup>
-
-
  
 </Project>
 

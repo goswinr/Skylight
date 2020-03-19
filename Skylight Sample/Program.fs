@@ -28,6 +28,7 @@ type SubModel = {
     mutable Counter:int
     mutable MyRow : int
     mutable MyCol : int
+    mutable CellBorder:Thickness
 }
 
 type MyModel = {
@@ -36,6 +37,7 @@ type MyModel = {
     mutable VariableCount : int
     mutable Items:OSeq<string>
     mutable Selected:obj
+    
     Submodel :SubModel
 }
 
@@ -49,9 +51,11 @@ module Program =
                 stackPanel {
                     children [
                         grid {
+                            
                             cell (0,2,label { content <@ model.Value1 @> } )
                             cell (1,4,textBox { text <@ model.Value1 @> })
-                            cell (<@ model.MyRow @>,<@ model.MyCol @>,label { content "I Move around depending on MyRow/MyCol" })
+                            cell (<@ model.MyRow @>, <@ model.MyCol @>, 
+                                border { borderThickness ( <@ model.CellBorder @> );  borderBrush (Brushes.Blue); child (label { content "I Move around depending on MyRow/MyCol" }) } )
                         }
                         grid {
                             cell (0,0,label { content "My Row:" })
@@ -59,6 +63,14 @@ module Program =
                             cell (0,2,label { content "My Column:" })
                             cell (0,3,textBox { text (<@ model.MyCol @>,(fun str -> let mutable result = 0 in Int32.TryParse(str,&result) |> ignore ; result),string)})
                         }
+                        grid {                            
+                            cell (0,0,label { content "Border:" })
+                            //cell (0,1,textBox { text <@ model.CellBorder @> ; onKeyDown (fun _ args -> if args.Key = Key.Enter then model.Items.Add vm.NewName ) })
+                            cell (0,1,textBox { text (<@ model.CellBorder @>,(fun str -> let mutable result = 1. in Double.TryParse(str,&result) |> ignore ; Thickness result),fun (th:Thickness) -> sprintf "%.1f" th.Bottom )})
+                            
+                        }
+
+                        
                     ]
                 }
             )
@@ -190,6 +202,7 @@ module Program =
                 Counter = 0  
                 MyRow = 0
                 MyCol = 0
+                CellBorder = Thickness 2.0
             }
         }
     

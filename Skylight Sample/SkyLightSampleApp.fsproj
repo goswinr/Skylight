@@ -26,6 +26,9 @@
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="SkyLight">
+      <HintPath>..\Skylight\bin\Debug\net472\SkyLight.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows" />
     <Reference Include="WindowsBase" />
@@ -34,10 +37,6 @@
   <ItemGroup>
     <PackageReference Update="FSharp.Core" Version="4.7.1" />
     <PackageReference Include="TaskBuilder.fs" Version="2.1.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\SkyLight\SkyLight.fsproj" />
   </ItemGroup>
 
 

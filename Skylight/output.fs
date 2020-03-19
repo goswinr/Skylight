@@ -2926,6 +2926,7 @@ type BorderBuilder() =
 
     [<CustomOperation("borderThickness")>]
     member __.BorderThickness<'C when 'C :> Border>(binder:ControlBinder<'C>,v:Thickness) = binder.Control.BorderThickness <- v ; binder
+    //member __.BorderThickness<'C when 'C :> Border>(binder:ControlBinder<'C>,v:float) = binder.Control.BorderThickness <- Thickness(v) ; binder //TODO good idea ?
     
     member __.BorderThickness<'C,'T when 'C :> Border>(binder:ControlBinder<'C>,expr:Expr<'T>) = binder.Collect(propTargetBindX expr Border.BorderThicknessProperty)
     member __.BorderThickness<'C,'TP,'TC when 'C :> Border>(binder:ControlBinder<'C>,(expr:Expr<'TP>,setMap:'TC->'TP,getMap:'TP->'TC)) = binder.Collect(propMapTargetBindX expr getMap setMap Border.BorderThicknessProperty)
